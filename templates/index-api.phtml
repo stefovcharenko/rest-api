@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>REST API test</title>
+    <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function ready() {
+            var button = document.getElementById('get-user');
+            button.onclick = function () {
+                var input = document.getElementById('input-id');
+                button.setAttribute('href', button.getAttribute('href') + '/' + input.value);
+            };
+        }
+        document.addEventListener("DOMContentLoaded", ready);
+    </script>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        text-align: center;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h1>REST API test</h1>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <a class="btn btn-success" href="/api/users" role="button">GET all users</a>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <a class="btn btn-success" href="/api/users" role="button" id="get-user">GET user with entered name</a>
+            <br>
+            <br>
+            <input type="text" name="name" id="input-id" required>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <form method="post" action="/api/users" name="create-user">
+                <button type="submit" class="btn btn-info">POST create new user</button>
+                <br><br>
+                <input placeholder="Name" type="text" name="name" required>
+                <br><br>
+                <input placeholder="Telephone" type="text" name="telephone" required>
+            </form>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+    </div>
+</div>
+</body>
+</html>
